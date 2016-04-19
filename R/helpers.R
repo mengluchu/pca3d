@@ -70,7 +70,7 @@ calc.centroids <- function(coords, group) {
 }
 
 ## extract components, check dimensionality etc.
-get.pca.coords <- function(pca, n, components=1:n) {
+get.pca.coords <- function(pca, n, components=1:n, t1=1, t2 ) {
 
   if(length(components) < n) {
     stop(sprintf("Length of components is %d, but should be %d",
@@ -82,9 +82,9 @@ get.pca.coords <- function(pca, n, components=1:n) {
     warning(sprintf("Using first %d components", n))
     components <- components[1:n]
   }
-
+ 
   ret <- switch(class(pca),
-    prcomp=pca$x,
+    prcomp=pca$x[t1:t2, ],
     princomp=pca$scores,
     matrix=pca,
     stop("pca must be either a matrix or a PCA object (prcomp, princomp etc.)"))
