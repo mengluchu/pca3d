@@ -124,7 +124,7 @@
 pca2d <-
 function(pca, components=1:2, col=NULL, title=NULL, new=FALSE,
   axes.color ="black",
-  t1,t2
+  t1,t2,
   bg="white",
   radius=1,
   group=NULL,
