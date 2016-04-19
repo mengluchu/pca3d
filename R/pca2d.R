@@ -124,6 +124,7 @@
 pca2d <-
 function(pca, components=1:2, col=NULL, title=NULL, new=FALSE,
   axes.color ="black",
+  t1,t2
   bg="white",
   radius=1,
   group=NULL,
@@ -158,7 +159,7 @@ function(pca, components=1:2, col=NULL, title=NULL, new=FALSE,
   if(missing(palette)) palette <- defaultPalettePCA3D()
 
   # prepare pca coordinates to plot
-  pca.coords <- get.pca.coords(pca, 2, components)
+  pca.coords <- get.pca.coords(pca, 2, components, t1, t2)
   n.p <- nrow(pca.coords)
 
   if(!missing(biplot)) {
